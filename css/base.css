@@ -1,0 +1,100 @@
+:root {
+    --primary-color: #E23D3D;
+    --hover-color: #e65757;
+    --second-color: #212121;
+    --text-color: #858181;
+    --white-color: #FFFFFF;
+    --primary-font: "Poppins", sans-serif;
+    --boder--color: #dbdbdb;
+}
+
+.btn-submit,
+.btn-red {
+    border: none;
+    outline: none;
+    border-radius: 7px;
+    overflow: hidden;
+    max-width: 15.5rem;
+    box-shadow: 0 0.09rem 3.125rem 0 rgba(0, 0, 0, 0.1);
+    background-color: var(--primary-color);
+    font-size: 1.7rem;
+    font-weight: 500;
+}
+
+.btn-red a {
+    padding: 11px 30px;
+    display: block;
+    text-decoration: none;
+    color: var(--white-color);
+}
+
+.btn-red:hover a {
+    background-color: var(--hover-color);
+    transition: linear 0.25s;
+}
+
+.btn-white {
+    border: 1px solid #ccc;
+    outline: none;
+    border-radius: 7px;
+    overflow: hidden;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    background-color: var(--white-color);
+    font-weight: 500;
+    font-size: 1.7rem;
+    min-width: 5rem;
+    height: 4.8rem;
+    line-height: 4.8rem;
+}
+
+.btn-white a {
+    color: var(--second-color);
+    padding: 0 3rem;
+    text-decoration: none;
+    display: block;
+}
+
+.btn-white:hover a {
+    background-color: var(--hover-color);
+    color: var(--white-color);
+    transition: ease-in 0.3s;
+}
+
+.btn-size-xl {
+    border: none;
+    outline: none;
+    border-radius: 7px;
+    overflow: hidden;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    background-color: var(--primary-color);
+    font-weight: 500;
+    font-size: 1.7rem;
+    min-width: 8rem;
+    width: 100%;
+    height: 4.8rem;
+    line-height: 4.8rem;
+}
+
+.btn-size-xl a {
+    color: var(--white-color);
+    text-decoration: none;
+    display: block;
+}
+
+.btn-size-xl:hover a {
+    background-color: var(--hover-color);
+    transition: linear 0.3s;
+}
+
+.btn-submit {
+    padding: 11px 30px;
+    display: block;
+    text-decoration: none;
+    color: var(--white-color);
+    cursor: pointer;
+}
+
+.btn-submit:hover {
+    background-color: var(--hover-color);
+    transition: linear 0.25s;
+}
