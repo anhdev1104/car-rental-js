@@ -31,6 +31,16 @@ body {
     font-size: 1.4rem;
 }
 
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-color); 
+    border-radius: 10px;
+    height: 15rem;
+}
+
 .ptb-200 {
     padding: 20rem 0;
 }
