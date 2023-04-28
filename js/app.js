@@ -1,3 +1,24 @@
+// Tabs UI
+const tabs = document.querySelectorAll('.menu-item');
+const line = document.querySelector('.line');
+
+const tabsActive = document.querySelector('.menu-item.active'); 
+
+requestIdleCallback(function () {
+    line.style.left = tabsActive.offsetLeft + 'px';
+    line.style.width = tabsActive.offsetWidth + 'px';
+})
+
+tabs.forEach((tab, index) => { 
+    tab.onclick = function () {
+        document.querySelector('.menu-item.active').classList.remove('active');
+
+        line.style.left = this.offsetLeft + 'px';
+        line.style.width = this.offsetWidth + 'px';
+
+        this.classList.add('active');
+    }
+});
 // auto slideShow background-images 
 var images = ['./img/banner.png', './img/banner2.jpg', './img/banner3.webp'];
 var currentIndex = 0; // Chỉ số hiện tại của hình ảnh
@@ -120,4 +141,4 @@ Validator.minLength = function (selector, min) {
             return value.trim().length >= min ? undefined : `Please enter a message of at least ${min} characters !`;
         }
     };
-}   
+}

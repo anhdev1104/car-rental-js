@@ -98,13 +98,26 @@ body {
     font-weight: 500;
 }
 
+.menu-item {
+    position: relative;
+    text-align: center;
+    /* padding: 0.8rem 0; */
+}
+
+.line {
+    position: absolute;
+    height: 3px;
+    background-color: var(--primary-color);
+    width: 0;
+    bottom: 30%;
+    left: 0;
+    border-radius: 1.5rem;
+    transition: all 0.5s ease; 
+}
+
 .menu-link {
     text-decoration: none;
     color: var(--second-color);
-}
-
-.menu-link:hover {
-    border-bottom: 2px solid var(--primary-color);
 }
 
 .header-account {
