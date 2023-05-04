@@ -19,6 +19,8 @@ tabs.forEach((tab, index) => {
         this.classList.add('active');
     }
 });
+
+
 // auto slideShow background-images 
 var images = ['./img/banner.png', './img/banner2.jpg', './img/banner3.webp'];
 var currentIndex = 0; // Chỉ số hiện tại của hình ảnh
@@ -57,6 +59,7 @@ function Validator(options) {
         } else {
             errorElement.innerText = '';
             errorElement.parentElement.classList.remove('invalid');
+            
         }
         
         return !errorMessage;
@@ -78,17 +81,64 @@ function Validator(options) {
                 }
             });
             if (isFormValid) {
-                alert('Successful contact.');
+                toast(toastSuccess);
             }
         }
 
-//1        // lặp qua rule và xử lý (lắng nghe sự kiện blur, input);
+    // Toast success
+    // Xử lí sự kiện khi success contact form
+    const toastSuccess = {
+        title: 'Successful !',
+        message: 'Contact registration successful. We will contact you as soon as possible.',
+        type: 'success',
+        duration: 3000,
+        icon: 'fa-solid fa-circle-check'
+    }
+
+    function toast(toastSuccess) {
+        const mainToast = document.querySelector('#toast');
+        if (mainToast) {
+            const toast = document.createElement('div');
+            const delay = (toastSuccess.duration / 1000).toFixed(2);
+            
+            toast.classList.add('toast', `toast--${toastSuccess.type}`);
+            toast.style.animation = `slideInLeft .3s ease, fadeOut linear 1s ${delay}s forwards`;
+            toast.innerHTML = `
+                <div class="toast__icon">
+                    <i class="${toastSuccess.icon}"></i>
+                </div>
+                    <div class="toast__body">
+                        <h3 class="toast__title">${toastSuccess.title}</h3>
+                        <p class="toast__msg">${toastSuccess.message}</p>
+                    </div>
+                    <div class="toast__close">
+                        <i class="fa-solid fa-xmark"></i>
+                    </div>
+            `;
+            mainToast.appendChild(toast);
+
+            // Auto remove toast
+            const autoRemoveToast = setTimeout(() => {
+                mainToast.removeChild(toast)
+            }, toastSuccess.duration + 1000);
+
+            // Remove toast when click
+            toast.onclick = function(e) {
+                if (e.target.closest('.toast__close')) {
+                    mainToast.removeChild(toast);
+                    clearTimeout(autoRemoveToast);
+                }
+            }
+        }
+    }
+
+    //1     // lặp qua rule và xử lý (lắng nghe sự kiện blur, input);
         options.rules.forEach(function (rule){ 
             var inputElement = formElement.querySelector(rule.selector); 
             if (inputElement) {
-                    //xử lí trường hợp blur khỏi input
-                    inputElement.onblur = function () { 
-                        validate(inputElement, rule);
+                //xử lí trường hợp blur khỏi input
+                inputElement.onblur = function () { 
+                    validate(inputElement, rule);
                 }
                 //xử lí trường hợp nhập vào input
                 inputElement.oninput = function () {
@@ -100,6 +150,8 @@ function Validator(options) {
         });
     }
 }
+
+
 
 // định nghĩa các rules
 // nguyên tắc của các rules:
@@ -142,3 +194,5 @@ Validator.minLength = function (selector, min) {
         }
     };
 }
+
+
