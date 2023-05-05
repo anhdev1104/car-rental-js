@@ -60,6 +60,7 @@
     transition: ease-in 0.3s;
 }
 
+.btn-auth-form,
 .btn-size-xl {
     border: none;
     outline: none;

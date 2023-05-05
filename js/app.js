@@ -1,13 +1,47 @@
+// Form Sign Up
+const btnSignUp = document.querySelector('#btn-sign-up');
+const btnSignIn = document.querySelector('#btn-sign-in');
+const formSignUp = document.querySelector('.modal');
+const btnClose = document.querySelector('.auth-form-close');
+const boxSignUp = document.querySelector('.auth-form');
+
+btnSignUp.onclick = function() {
+    formSignUp.style.display = 'flex';
+}
+
+btnClose.onclick = function() {
+    formSignUp.style.display = 'none';
+}
+
+// Xử lí sự kiện click bên ngoài form
+formSignUp.onclick = function() {
+    formSignUp.style.display = 'none';
+}
+
+// Ngăn chặn sự kiện nổi bọt của thẻ cha
+boxSignUp.onclick = function(event) {
+    event.stopPropagation(); 
+}
+
+
 // Tabs UI
 const tabs = document.querySelectorAll('.menu-item');
 const line = document.querySelector('.line');
+const logo = document.querySelector('.header-logo');
 
 const tabsActive = document.querySelector('.menu-item.active'); 
 
 requestIdleCallback(function () {
     line.style.left = tabsActive.offsetLeft + 'px';
     line.style.width = tabsActive.offsetWidth + 'px';
-})
+}); 
+
+logo.onclick = function() {
+    document.querySelector('.menu-item.active').classList.remove('active');
+    line.style.left = tabsActive.offsetLeft + 'px';
+    line.style.width = tabsActive.offsetWidth + 'px';
+    tabs[0].classList.add('active'); 
+}
 
 tabs.forEach((tab, index) => { 
     tab.onclick = function () {
@@ -82,7 +116,8 @@ function Validator(options) {
             });
             if (isFormValid) {
                 toast(toastSuccess);
-            }
+                formElement.reset(); // phương thức reset() của form lại giá trị ban đầu
+            } 
         }
 
     // Toast success
@@ -91,7 +126,7 @@ function Validator(options) {
         title: 'Successful !',
         message: 'Contact registration successful. We will contact you as soon as possible.',
         type: 'success',
-        duration: 3000,
+        duration: 5000,
         icon: 'fa-solid fa-circle-check'
     }
 
