@@ -2,15 +2,27 @@
 const btnSignUp = document.querySelector('#btn-sign-up');
 const btnSignIn = document.querySelector('#btn-sign-in');
 const formSignUp = document.querySelector('.modal');
-const btnClose = document.querySelector('.auth-form-close');
+const formSignIn = document.querySelector('.modal-2');
 const boxSignUp = document.querySelector('.auth-form');
+const boxSignIn = document.querySelector('.auth-form-2');
+const btnClose = document.querySelector('.auth-form-close');
+const btnClose2 = document.querySelector('.auth-form-close2');
+
 
 btnSignUp.onclick = function() {
     formSignUp.style.display = 'flex';
 }
 
+btnSignIn.onclick = function() {
+    formSignIn.style.display = 'flex';
+}
+
 btnClose.onclick = function() {
     formSignUp.style.display = 'none';
+}
+
+btnClose2.onclick = function() {
+    formSignIn.style.display = 'none';
 }
 
 // Xử lí sự kiện click bên ngoài form
@@ -20,6 +32,14 @@ formSignUp.onclick = function() {
 
 // Ngăn chặn sự kiện nổi bọt của thẻ cha
 boxSignUp.onclick = function(event) {
+    event.stopPropagation(); 
+}
+
+formSignIn.onclick = function() {
+    formSignIn.style.display = 'none';
+}
+
+boxSignIn.onclick = function(event) {
     event.stopPropagation(); 
 }
 

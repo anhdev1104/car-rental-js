@@ -1019,7 +1019,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* display: none; */
+    display: none;
 }
 
 .auth-form,
@@ -1152,6 +1152,16 @@ body {
     color: var(--second-color);
 }
 
+.form-container-right2 {
+    position: relative;
+    width: 50%;
+    background: url(../img/form-car.jpg);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    object-fit: cover;
+    color: var(--second-color);
+}
+
 .evaluate {
     position: absolute;
     top: 50%;
@@ -1221,7 +1231,8 @@ body {
     text-align: center;
 }
 
-.auth-form-close {
+.auth-form-close,
+.auth-form-close2 {
     position: absolute;
     top: 0;
     right: 0;
@@ -1231,7 +1242,8 @@ body {
     cursor: pointer;
 }
 
-.auth-form-close:hover .auth-form-icon--close {
+.auth-form-close:hover .auth-form-icon--close,
+.auth-form-close2:hover .auth-form-icon--close {
     transition: all linear .3s;
     color: var(--second-color);
 }
