@@ -941,6 +941,14 @@ body {
     color: #47d864;
 }
 
+.toast--error {
+    border-color: #dd4747;
+}
+
+.toast--error .toast__icon {
+    color: #dd4747;
+}
+
 .footer-header {
     border-bottom: 1px solid #D4D4D8;
     padding-bottom: 3rem;
